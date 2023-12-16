@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.dodi.View;
+package com.mycompany.dodi;
 import com.mycompany.dodi.DataKaryawan;
-import com.mycompany.dodi.View.AbsensiKeluar;
-import com.mycompany.dodi.View.AbsensiMasuk;
+import com.mycompany.dodi.AbsensiKeluar;
+import com.mycompany.dodi.AbsensiMasuk;
 
 /**
  *
