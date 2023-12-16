@@ -2,7 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.dodi;
+package com.mycompany.dodi.View;
+import com.mycompany.dodi.DataKaryawan;
+import com.mycompany.dodi.View.AbsensiKeluar;
+import com.mycompany.dodi.View.AbsensiMasuk;
 
 /**
  *
@@ -152,12 +155,9 @@ public class MainScreen extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         MainDesktop.removeAll();
-        AbsensiMasuk RA = new AbsensiMasuk();
-        try {
-            RA.setMaximum(true);
-        } catch (Exception e) {
-        }
-        MainDesktop.add(RA).setVisible(true);
+        AbsensiMasuk AM = new AbsensiMasuk();
+        AM.setVisible(true);
+        MainDesktop.add(AM).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -173,12 +173,9 @@ public class MainScreen extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         MainDesktop.removeAll();
-        AbsensiKeluar RA = new AbsensiKeluar();
-        try {
-            RA.setMaximum(true);
-        } catch (Exception e) {
-        }
-        MainDesktop.add(RA).setVisible(true);
+        AbsensiKeluar AK = new AbsensiKeluar();
+        AK.setVisible(true);
+        MainDesktop.add(AK).setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
