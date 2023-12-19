@@ -39,11 +39,12 @@ public class UbahDataKaryawan extends javax.swing.JFrame {
         fieldTelephone = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        fieldAlamat = new javax.swing.JTextField();
         fieldJK = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         btnUbahData = new javax.swing.JButton();
         btnBatal = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        fieldAlamat = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -115,9 +116,6 @@ public class UbahDataKaryawan extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(35, 35, 35));
         jLabel7.setText("Alamat");
 
-        fieldAlamat.setBackground(new java.awt.Color(254, 254, 254));
-        fieldAlamat.setForeground(new java.awt.Color(35, 35, 35));
-
         fieldJK.setBackground(new java.awt.Color(254, 254, 254));
         fieldJK.setForeground(new java.awt.Color(35, 35, 35));
 
@@ -145,6 +143,10 @@ public class UbahDataKaryawan extends javax.swing.JFrame {
             }
         });
 
+        fieldAlamat.setColumns(20);
+        fieldAlamat.setRows(5);
+        jScrollPane1.setViewportView(fieldAlamat);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -169,25 +171,25 @@ public class UbahDataKaryawan extends javax.swing.JFrame {
                         .addGap(55, 55, 55)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(fieldJK, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fieldAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(btnUbahData, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
                         .addComponent(btnBatal, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
                             .addComponent(fieldJK, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(fieldNama, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
-                        .addComponent(fieldAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(41, 41, 41)
@@ -201,7 +203,7 @@ public class UbahDataKaryawan extends javax.swing.JFrame {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(13, 13, 13)
                                 .addComponent(jLabel5)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUbahData, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBatal, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -336,7 +338,7 @@ public class UbahDataKaryawan extends javax.swing.JFrame {
     private javax.swing.JButton btnBatal;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnUbahData;
-    private javax.swing.JTextField fieldAlamat;
+    private javax.swing.JTextArea fieldAlamat;
     private javax.swing.JTextField fieldID;
     private javax.swing.JTextField fieldJK;
     private javax.swing.JTextField fieldJabatan;
@@ -352,5 +354,6 @@ public class UbahDataKaryawan extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

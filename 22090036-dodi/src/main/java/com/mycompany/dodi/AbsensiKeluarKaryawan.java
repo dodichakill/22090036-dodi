@@ -17,13 +17,13 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author dodi
  */
-public class AbsensiMasukKaryawan extends javax.swing.JInternalFrame {
+public class AbsensiKeluarKaryawan extends javax.swing.JInternalFrame {
     Statement stmt;
     ResultSet rs;
     /**
-     * Creates new form AbsensiMasukKaryawan
+     * Creates new form AbsensiKeluarKaryawan
      */
-    public AbsensiMasukKaryawan() {
+    public AbsensiKeluarKaryawan() {
         initComponents();
         this.setBorder(null);
         BasicInternalFrameUI decorate = (BasicInternalFrameUI) this.getUI();
@@ -43,17 +43,17 @@ public class AbsensiMasukKaryawan extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tableRAM = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         fieldID = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableRAK = new javax.swing.JTable();
 
         jPanel1.setBackground(new java.awt.Color(0, 158, 255));
 
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
-        jLabel1.setText("Absensi Masuk");
+        jLabel1.setText("Absensi Keluar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -62,7 +62,7 @@ public class AbsensiMasukKaryawan extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(435, 435, 435)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(529, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -71,23 +71,6 @@ public class AbsensiMasukKaryawan extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addContainerGap(50, Short.MAX_VALUE))
         );
-
-        tableRAM.setFont(new java.awt.Font("Ubuntu", 0, 15)); // NOI18N
-        tableRAM.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(tableRAM);
-
-        jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 20)); // NOI18N
-        jLabel2.setText("Riwayat Absensi Masuk");
 
         jPanel3.setBackground(new java.awt.Color(54, 239, 254));
 
@@ -110,7 +93,7 @@ public class AbsensiMasukKaryawan extends javax.swing.JInternalFrame {
                 .addComponent(jLabel3)
                 .addGap(47, 47, 47)
                 .addComponent(fieldID, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(468, Short.MAX_VALUE))
+                .addContainerGap(450, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,6 +105,23 @@ public class AbsensiMasukKaryawan extends javax.swing.JInternalFrame {
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
+        jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 20)); // NOI18N
+        jLabel2.setText("Riwayat Absensi Keluar");
+
+        tableRAK.setFont(new java.awt.Font("Ubuntu", 0, 15)); // NOI18N
+        tableRAK.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tableRAK);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -129,12 +129,12 @@ public class AbsensiMasukKaryawan extends javax.swing.JInternalFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(22, 22, 22)
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -143,36 +143,24 @@ public class AbsensiMasukKaryawan extends javax.swing.JInternalFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void fieldIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldIDActionPerformed
-        absensiMasuk();
-        
+        absensiKeluar();
+
     }//GEN-LAST:event_fieldIDActionPerformed
 
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField fieldID;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tableRAM;
-    // End of variables declaration//GEN-END:variables
-
-    private void absensiMasuk() {
+     private void absensiKeluar() {
         try {
             stmt = LoginScreen.conn.createStatement();
-            int res = stmt.executeUpdate("INSERT INTO Absensi (id_karyawan, waktu_masuk) VALUES ("+fieldID.getText()+", CURRENT_TIMESTAMP);");
+            int res = stmt.executeUpdate("INSERT INTO Absensi (id_karyawan, waktu_keluar) VALUES ("+fieldID.getText()+", CURRENT_TIMESTAMP);");
             if(res > 0) {
                 refreshData();
                 fieldID.setText("");
@@ -188,18 +176,18 @@ public class AbsensiMasukKaryawan extends javax.swing.JInternalFrame {
     private void refreshData() {
         try {
             stmt = LoginScreen.conn.createStatement();
-            rs = stmt.executeQuery("SELECT A.id_karyawan, K.nama, K.jabatan, K.telephone, K.alamat, A.waktu_masuk FROM Absensi AS A JOIN Karyawan AS K ON A.id_karyawan = K.id_karyawan GROUP BY A.waktu_masuk ORDER BY A.waktu_masuk DESC;");
+            rs = stmt.executeQuery("SELECT A.id_karyawan, K.nama, K.jabatan, K.telephone, K.alamat, A.waktu_keluar FROM Absensi AS A JOIN Karyawan AS K ON A.id_karyawan = K.id_karyawan GROUP BY A.waktu_keluar ORDER BY A.waktu_keluar DESC;");
             
             DefaultTableModel model = new DefaultTableModel();
             
             model.addColumn("ID_Karyawan");
             model.addColumn("Nama");
             model.addColumn("Jabatan");
-            model.addColumn("Telephone");            
+            model.addColumn("Telephone");
             model.addColumn("Alamat");
-            model.addColumn("Waktu Masuk");
+            model.addColumn("Waktu Keluar");
             
-            tableRAM.setModel(model);
+            tableRAK.setModel(model);
             
             while (rs.next()) {
                 Object[] rowData = new Object[rs.getMetaData().getColumnCount()];
@@ -213,4 +201,14 @@ public class AbsensiMasukKaryawan extends javax.swing.JInternalFrame {
             System.out.println(e.getMessage());
         }
     }
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField fieldID;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tableRAK;
+    // End of variables declaration//GEN-END:variables
 }

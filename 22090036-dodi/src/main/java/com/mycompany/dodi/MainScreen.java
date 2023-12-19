@@ -4,6 +4,9 @@
  */
 package com.mycompany.dodi;
 
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -40,7 +43,7 @@ public class MainScreen extends javax.swing.JFrame {
         btnAbsenMasuk = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         btnAbsenKeluar = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
         MainDesktop = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -74,11 +77,11 @@ public class MainScreen extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jButton4.setText("Logout");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnLogout.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnLogoutActionPerformed(evt);
             }
         });
 
@@ -92,7 +95,7 @@ public class MainScreen extends javax.swing.JFrame {
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAbsenMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAbsenKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30))
         );
         jPanel1Layout.setVerticalGroup(
@@ -105,7 +108,7 @@ public class MainScreen extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnAbsenKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(277, Short.MAX_VALUE))
         );
 
@@ -176,14 +179,27 @@ public class MainScreen extends javax.swing.JFrame {
 
     private void btnAbsenKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbsenKeluarActionPerformed
         MainDesktop.removeAll();
-        AbsensiKeluar AK = new AbsensiKeluar();
+        AbsensiKeluarKaryawan AK = new AbsensiKeluarKaryawan();
         AK.setVisible(true);
+        try {
+            AK.setMaximum(true);
+        } catch (Exception e) {
+        }
         MainDesktop.add(AK).setVisible(true);
     }//GEN-LAST:event_btnAbsenKeluarActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+        int response = showConfirmationDialog("Apakah Anda yakin ingin Logout?");
+
+        // Memproses respons dari pengguna
+        if (response == JOptionPane.YES_OPTION) {
+            LoginScreen LS = new LoginScreen();
+            LS.setVisible(true);
+            this.dispose();
+
+        }
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -220,13 +236,25 @@ public class MainScreen extends javax.swing.JFrame {
             }
         });
     }
+    
+    private static int showConfirmationDialog(String message) {
+        // JOptionPane.showConfirmDialog akan mengembalikan nilai sesuai dengan tombol yang diklik pengguna
+        return JOptionPane.showConfirmDialog(
+                null,
+                message,
+                "Konfirmasi Logout",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE
+        );
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane MainDesktop;
     private javax.swing.JButton btnAbsenKeluar;
     private javax.swing.JButton btnAbsenMasuk;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

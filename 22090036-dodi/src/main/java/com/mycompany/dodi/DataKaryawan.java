@@ -77,7 +77,7 @@ public class DataKaryawan extends javax.swing.JInternalFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         fieldSearch = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
+        btnSearch = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -136,14 +136,19 @@ public class DataKaryawan extends javax.swing.JInternalFrame {
                 fieldSearchFocusGained(evt);
             }
         });
-
-        jButton4.setBackground(new java.awt.Color(39, 78, 253));
-        jButton4.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(254, 254, 254));
-        jButton4.setText("Cari Data");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        fieldSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                fieldSearchActionPerformed(evt);
+            }
+        });
+
+        btnSearch.setBackground(new java.awt.Color(39, 78, 253));
+        btnSearch.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        btnSearch.setForeground(new java.awt.Color(254, 254, 254));
+        btnSearch.setText("Cari Data");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
             }
         });
 
@@ -155,7 +160,7 @@ public class DataKaryawan extends javax.swing.JInternalFrame {
                 .addGap(126, 126, 126)
                 .addComponent(fieldSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(189, 189, 189)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
@@ -170,7 +175,7 @@ public class DataKaryawan extends javax.swing.JInternalFrame {
                 .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -251,9 +256,38 @@ public class DataKaryawan extends javax.swing.JInternalFrame {
         HDK.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+        try {
+            conn = LoginScreen.conn;
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery("SELECT id_karyawan,nama,jabatan,telephone,alamat,jenis_kelamin from Karyawan WHERE nama = '" + fieldSearch.getText() + "'");
+            
+
+            DefaultTableModel model = new DefaultTableModel();
+            
+            model.addColumn("ID");
+            model.addColumn("Nama");
+            model.addColumn("Jabatan");
+            model.addColumn("Telephone");
+            model.addColumn("Alamat");
+            model.addColumn("Jenis Kelamin");
+            
+            tableKaryawan.setModel(model);
+            
+            while (rs.next()) {
+                Object[] rowData = new Object[rs.getMetaData().getColumnCount()];
+                for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) { rowData[i - 1] = rs.getObject(i); }
+                model.addRow(rowData);
+            }
+            
+            rs.close();
+            stmt.close();
+        } catch (SQLException e) { System.out.println(e.getMessage()); }
+        if (fieldSearch.getText().equals("")) {
+            refreshData();
+        }
+    }//GEN-LAST:event_btnSearchActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -262,7 +296,10 @@ public class DataKaryawan extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void fieldSearchFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldSearchFocusGained
-        // TODO add your handling code here:
+
+        if (fieldSearch.getText().equals("")) {
+            refreshData();
+        }
 
     }//GEN-LAST:event_fieldSearchFocusGained
 
@@ -272,13 +309,18 @@ public class DataKaryawan extends javax.swing.JInternalFrame {
         UDK.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void fieldSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldSearchActionPerformed
+        // TODO add your handling code here:
+        fieldSearch.setText("");
+    }//GEN-LAST:event_fieldSearchActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSearch;
     private javax.swing.JTextField fieldSearch;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
