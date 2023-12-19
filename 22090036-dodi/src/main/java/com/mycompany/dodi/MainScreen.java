@@ -3,9 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.dodi;
-import com.mycompany.dodi.DataKaryawan;
-import com.mycompany.dodi.AbsensiKeluar;
-import com.mycompany.dodi.AbsensiMasuk;
+
 
 /**
  *
@@ -23,6 +21,7 @@ public class MainScreen extends javax.swing.JFrame {
         try {
             DK.setMaximum(true);
         } catch (Exception e) {
+            System.out.println(e);
         }
         MainDesktop.add(DK).setVisible(true);
     }
@@ -38,9 +37,9 @@ public class MainScreen extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnAbsenMasuk = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnAbsenKeluar = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         MainDesktop = new javax.swing.JDesktopPane();
 
@@ -50,11 +49,11 @@ public class MainScreen extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 255));
 
-        jButton1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jButton1.setText("Absensi Masuk");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAbsenMasuk.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        btnAbsenMasuk.setText("Absensi Masuk");
+        btnAbsenMasuk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAbsenMasukActionPerformed(evt);
             }
         });
 
@@ -66,12 +65,12 @@ public class MainScreen extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jButton3.setText("Absensi Keluar");
-        jButton3.setName("AbsensiKeluar"); // NOI18N
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnAbsenKeluar.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        btnAbsenKeluar.setText("Absensi Keluar");
+        btnAbsenKeluar.setName("AbsensiKeluar"); // NOI18N
+        btnAbsenKeluar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnAbsenKeluarActionPerformed(evt);
             }
         });
 
@@ -91,8 +90,8 @@ public class MainScreen extends javax.swing.JFrame {
                 .addContainerGap(37, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAbsenMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAbsenKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30))
         );
@@ -102,9 +101,9 @@ public class MainScreen extends javax.swing.JFrame {
                 .addGap(169, 169, 169)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAbsenMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAbsenKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(277, Short.MAX_VALUE))
@@ -153,12 +152,16 @@ public class MainScreen extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAbsenMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbsenMasukActionPerformed
         MainDesktop.removeAll();
-        AbsensiMasuk AM = new AbsensiMasuk();
+        AbsensiMasukKaryawan AM = new AbsensiMasukKaryawan();
         AM.setVisible(true);
+        try {
+            AM.setMaximum(true);
+        } catch (Exception e) {
+        }
         MainDesktop.add(AM).setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAbsenMasukActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         MainDesktop.removeAll();
@@ -171,12 +174,12 @@ public class MainScreen extends javax.swing.JFrame {
         MainDesktop.add(DK).setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnAbsenKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbsenKeluarActionPerformed
         MainDesktop.removeAll();
         AbsensiKeluar AK = new AbsensiKeluar();
         AK.setVisible(true);
         MainDesktop.add(AK).setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnAbsenKeluarActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
@@ -220,9 +223,9 @@ public class MainScreen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane MainDesktop;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnAbsenKeluar;
+    private javax.swing.JButton btnAbsenMasuk;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

@@ -101,7 +101,6 @@
                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="fieldJabatan" alignment="0" max="32767" attributes="0"/>
-                      <Component id="fieldNama" alignment="0" max="32767" attributes="0"/>
                       <Component id="fieldTelephone" alignment="0" max="32767" attributes="0"/>
                       <Component id="fieldJk" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
@@ -110,8 +109,9 @@
                           <Component id="btnCancel" min="-2" pref="146" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jScrollPane1" pref="415" max="32767" attributes="0"/>
+                      <Component id="fieldNama" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="300" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -120,7 +120,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="fieldNama" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                      <Component id="fieldNama" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>

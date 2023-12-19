@@ -5,8 +5,6 @@
 package com.mycompany.dodi;
 
 import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
-import static com.mycompany.dodi.LoginScreen.conn;
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -17,9 +15,9 @@ import javax.swing.JOptionPane;
  * @author dodi
  */
 public class TambahDataKaryawan extends javax.swing.JFrame {
-    public static Connection conn;
     Statement stmt;
     ResultSet rs;
+
     /**
      * Creates new form TambahDataKaryawan
      */
@@ -133,22 +131,22 @@ public class TambahDataKaryawan extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(fieldJabatan)
-                    .addComponent(fieldNama)
                     .addComponent(fieldTelephone)
                     .addComponent(fieldJk)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 415, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 415, Short.MAX_VALUE)
+                    .addComponent(fieldNama))
+                .addContainerGap(300, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fieldNama, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fieldNama, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -193,20 +191,27 @@ public class TambahDataKaryawan extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        // TODO add your handling code here:
         this.dispose();
+        setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
+        DataKaryawan DK = new DataKaryawan();
+        try {
+            DK.setMaximum(true);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        new MainScreen().add(DK).setVisible(true);
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
         try {
-            
             stmt = LoginScreen.conn.createStatement();
             stmt.executeUpdate("INSERT INTO Karyawan (nama,jabatan,telephone,alamat,jenis_kelamin) VALUES('" + fieldNama.getText() + "','" + fieldJabatan.getText() + "','" + fieldTelephone.getText()
                     +
                     "','"+ fieldAlamat.getText() +"','"+fieldJk.getText()+"');");
             rs = stmt.executeQuery("SELECT * FROM Karyawan");
             if (rs.next()) {
+                DataKaryawan.refreshData();
                 JOptionPane.showMessageDialog(this, "Berhasil menambahkan data karyawan");
                 this.dispose();   
             } else {
