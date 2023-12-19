@@ -43,13 +43,13 @@ public class TambahDataKaryawan extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         fieldTelephone = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        fieldJk = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         btnSubmit = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         fieldAlamat = new javax.swing.JTextArea();
+        CBJK = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -105,7 +105,7 @@ public class TambahDataKaryawan extends javax.swing.JFrame {
         btnCancel.setBackground(new java.awt.Color(255, 0, 0));
         btnCancel.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         btnCancel.setForeground(new java.awt.Color(255, 255, 255));
-        btnCancel.setText("Cancel");
+        btnCancel.setText("Batal");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelActionPerformed(evt);
@@ -115,6 +115,8 @@ public class TambahDataKaryawan extends javax.swing.JFrame {
         fieldAlamat.setColumns(20);
         fieldAlamat.setRows(5);
         jScrollPane1.setViewportView(fieldAlamat);
+
+        CBJK.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki-Laki", "Perempuan" }));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -129,17 +131,18 @@ public class TambahDataKaryawan extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(jLabel6))
                 .addGap(36, 36, 36)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(fieldJabatan)
-                    .addComponent(fieldTelephone)
-                    .addComponent(fieldJk)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 415, Short.MAX_VALUE)
-                    .addComponent(fieldNama))
-                .addContainerGap(300, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(fieldJabatan)
+                        .addComponent(fieldTelephone)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 415, Short.MAX_VALUE)
+                        .addComponent(fieldNama))
+                    .addComponent(CBJK, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,10 +159,13 @@ public class TambahDataKaryawan extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fieldTelephone, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addGap(31, 31, 31)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fieldJk, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(jLabel5))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(CBJK, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(40, 40, 40)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
@@ -206,9 +212,7 @@ public class TambahDataKaryawan extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             stmt = LoginScreen.conn.createStatement();
-            stmt.executeUpdate("INSERT INTO Karyawan (nama,jabatan,telephone,alamat,jenis_kelamin) VALUES('" + fieldNama.getText() + "','" + fieldJabatan.getText() + "','" + fieldTelephone.getText()
-                    +
-                    "','"+ fieldAlamat.getText() +"','"+fieldJk.getText()+"');");
+            stmt.executeUpdate("INSERT INTO Karyawan (nama,jabatan,telephone,alamat,jenis_kelamin) VALUES('" + fieldNama.getText() + "','" + fieldJabatan.getText() + "','" + fieldTelephone.getText() + "','" + fieldAlamat.getText() + "','" + CBJK.getSelectedItem().toString() + "');");
             rs = stmt.executeQuery("SELECT * FROM Karyawan");
             if (rs.next()) {
                 DataKaryawan.refreshData();
@@ -259,11 +263,11 @@ public class TambahDataKaryawan extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> CBJK;
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnSubmit;
     private javax.swing.JTextArea fieldAlamat;
     private javax.swing.JTextField fieldJabatan;
-    private javax.swing.JTextField fieldJk;
     private javax.swing.JTextField fieldNama;
     private javax.swing.JTextField fieldTelephone;
     private javax.swing.JLabel jLabel1;

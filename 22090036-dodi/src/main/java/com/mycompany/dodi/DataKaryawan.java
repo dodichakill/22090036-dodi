@@ -261,12 +261,12 @@ public class DataKaryawan extends javax.swing.JInternalFrame {
         try {
             conn = LoginScreen.conn;
             stmt = conn.createStatement();
-            rs = stmt.executeQuery("SELECT id_karyawan,nama,jabatan,telephone,alamat,jenis_kelamin from Karyawan WHERE nama = '" + fieldSearch.getText() + "'");
-            
+            rs = stmt.executeQuery("SELECT id_karyawan,nama,jabatan,telephone,alamat,jenis_kelamin from Karyawan WHERE nama LIKE '%" + fieldSearch.getText() + "%'");
+
 
             DefaultTableModel model = new DefaultTableModel();
             
-            model.addColumn("ID");
+            model.addColumn("ID Karyawan");
             model.addColumn("Nama");
             model.addColumn("Jabatan");
             model.addColumn("Telephone");
@@ -296,7 +296,7 @@ public class DataKaryawan extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void fieldSearchFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldSearchFocusGained
-
+        fieldSearch.setText("");
         if (fieldSearch.getText().equals("")) {
             refreshData();
         }

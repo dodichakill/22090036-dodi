@@ -70,7 +70,7 @@ public class HapusDataKaryawan extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(1, 1, 1));
         jLabel2.setText("Masukan ID Karyawan");
 
-        jButton2.setBackground(new java.awt.Color(1, 229, 72));
+        jButton2.setBackground(new java.awt.Color(1, 92, 229));
         jButton2.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(254, 254, 254));
         jButton2.setText("Hapus  Data");

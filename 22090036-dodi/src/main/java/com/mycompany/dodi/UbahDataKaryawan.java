@@ -39,12 +39,12 @@ public class UbahDataKaryawan extends javax.swing.JFrame {
         fieldTelephone = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        fieldJK = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         btnUbahData = new javax.swing.JButton();
         btnBatal = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         fieldAlamat = new javax.swing.JTextArea();
+        CBJK = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,9 +116,6 @@ public class UbahDataKaryawan extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(35, 35, 35));
         jLabel7.setText("Alamat");
 
-        fieldJK.setBackground(new java.awt.Color(254, 254, 254));
-        fieldJK.setForeground(new java.awt.Color(35, 35, 35));
-
         jLabel8.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(35, 35, 35));
         jLabel8.setText("Jenis Kelamin");
@@ -144,8 +141,12 @@ public class UbahDataKaryawan extends javax.swing.JFrame {
         });
 
         fieldAlamat.setColumns(20);
+        fieldAlamat.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         fieldAlamat.setRows(5);
         jScrollPane1.setViewportView(fieldAlamat);
+
+        CBJK.setFont(new java.awt.Font("Ubuntu", 0, 15)); // NOI18N
+        CBJK.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki-laki", "Perempuan" }));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -169,14 +170,14 @@ public class UbahDataKaryawan extends javax.swing.JFrame {
                             .addComponent(jLabel8)
                             .addComponent(jLabel7))
                         .addGap(55, 55, 55)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fieldJK, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1)
+                            .addComponent(CBJK, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(btnUbahData, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
                         .addComponent(btnBatal, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(140, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,8 +187,8 @@ public class UbahDataKaryawan extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
-                            .addComponent(fieldJK, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fieldNama, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(fieldNama, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CBJK, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1))
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -265,7 +266,7 @@ public class UbahDataKaryawan extends javax.swing.JFrame {
     private void btnUbahDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahDataActionPerformed
         try {
             stmt = LoginScreen.conn.createStatement();
-            int res = stmt.executeUpdate("UPDATE Karyawan SET nama = '" + fieldNama.getText() + "', jabatan = '" + fieldJabatan.getText() + "', alamat = '" + fieldAlamat.getText() + "', telephone = '" + fieldTelephone.getText() + "', jenis_kelamin = '" + fieldJK.getText() + "' WHERE id_karyawan = " + fieldID.getText());
+            int res = stmt.executeUpdate("UPDATE Karyawan SET nama = '" + fieldNama.getText() + "', jabatan = '" + fieldJabatan.getText() + "', alamat = '" + fieldAlamat.getText() + "', telephone = '" + fieldTelephone.getText() + "', jenis_kelamin = '" + CBJK.getSelectedItem().toString() + "' WHERE id_karyawan = " + fieldID.getText());
             if(res > 0){
                 DataKaryawan.refreshData();
                 JOptionPane.showMessageDialog(this, "Berhasil Memperbarui Data");
@@ -289,7 +290,7 @@ public class UbahDataKaryawan extends javax.swing.JFrame {
                 fieldJabatan.setText(rs.getString("jabatan"));
                 fieldAlamat.setText(rs.getString("alamat"));
                 fieldTelephone.setText(rs.getString("telephone"));
-                fieldJK.setText(rs.getString("jenis_kelamin"));
+                CBJK.setSelectedItem(rs.getString("jenis_kelamin"));
             } else {
                 JOptionPane.showMessageDialog(this, "ID tidak ditemukan, silahkan coba lagi");
             }
@@ -335,12 +336,12 @@ public class UbahDataKaryawan extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> CBJK;
     private javax.swing.JButton btnBatal;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnUbahData;
     private javax.swing.JTextArea fieldAlamat;
     private javax.swing.JTextField fieldID;
-    private javax.swing.JTextField fieldJK;
     private javax.swing.JTextField fieldJabatan;
     private javax.swing.JTextField fieldNama;
     private javax.swing.JTextField fieldTelephone;
