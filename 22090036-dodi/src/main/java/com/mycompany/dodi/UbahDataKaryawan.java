@@ -74,6 +74,11 @@ public class UbahDataKaryawan extends javax.swing.JFrame {
 
         fieldID.setBackground(new java.awt.Color(254, 254, 254));
         fieldID.setForeground(new java.awt.Color(35, 35, 35));
+        fieldID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldIDActionPerformed(evt);
+            }
+        });
 
         btnSearch.setBackground(new java.awt.Color(83, 38, 253));
         btnSearch.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
@@ -299,6 +304,10 @@ public class UbahDataKaryawan extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void fieldIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldIDActionPerformed
 
     /**
      * @param args the command line arguments

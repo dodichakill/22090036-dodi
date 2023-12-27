@@ -38,12 +38,14 @@ public class MainScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        btnAbsenMasuk = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        btnAbsenKeluar = new javax.swing.JButton();
+        btnAbsensiMasuk = new javax.swing.JButton();
+        btnDataKaryawan = new javax.swing.JButton();
+        btnAbsensiKeluar = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         MainDesktop = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -52,38 +54,44 @@ public class MainScreen extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 255));
 
-        btnAbsenMasuk.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        btnAbsenMasuk.setText("Absensi Masuk");
-        btnAbsenMasuk.addActionListener(new java.awt.event.ActionListener() {
+        btnAbsensiMasuk.setBackground(new java.awt.Color(43, 213, 253));
+        btnAbsensiMasuk.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        btnAbsensiMasuk.setText("Absensi Masuk");
+        btnAbsensiMasuk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAbsenMasukActionPerformed(evt);
+                btnAbsensiMasukActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jButton2.setText("Data Karyawan");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnDataKaryawan.setBackground(new java.awt.Color(43, 213, 253));
+        btnDataKaryawan.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        btnDataKaryawan.setText("Data Karyawan");
+        btnDataKaryawan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnDataKaryawanActionPerformed(evt);
             }
         });
 
-        btnAbsenKeluar.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        btnAbsenKeluar.setText("Absensi Keluar");
-        btnAbsenKeluar.setName("AbsensiKeluar"); // NOI18N
-        btnAbsenKeluar.addActionListener(new java.awt.event.ActionListener() {
+        btnAbsensiKeluar.setBackground(new java.awt.Color(43, 213, 253));
+        btnAbsensiKeluar.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        btnAbsensiKeluar.setText("Absensi Keluar");
+        btnAbsensiKeluar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAbsenKeluarActionPerformed(evt);
+                btnAbsensiKeluarActionPerformed(evt);
             }
         });
 
-        btnLogout.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        btnLogout.setBackground(new java.awt.Color(255, 0, 46));
+        btnLogout.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         btnLogout.setText("Logout");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogoutActionPerformed(evt);
             }
         });
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/Assets/logo.png"))); // NOI18N
+        jLabel5.setPreferredSize(new java.awt.Dimension(237, 71));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -92,24 +100,27 @@ public class MainScreen extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(37, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAbsenMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAbsenKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAbsensiMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDataKaryawan, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAbsensiKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(169, 169, 169)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(94, Short.MAX_VALUE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(btnDataKaryawan, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnAbsenMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAbsensiMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnAbsenKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(277, Short.MAX_VALUE))
+                .addComponent(btnAbsensiKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(190, 190, 190)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49))
         );
 
         MainDesktop.setBackground(new java.awt.Color(255, 255, 255));
@@ -155,44 +166,45 @@ public class MainScreen extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAbsenMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbsenMasukActionPerformed
+    private void btnAbsensiMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbsensiMasukActionPerformed
         MainDesktop.removeAll();
-        AbsensiMasukKaryawan AM = new AbsensiMasukKaryawan();
-        AM.setVisible(true);
+        AbsensiMasukKaryawan AMK = new AbsensiMasukKaryawan();
+        AMK.setVisible(true);
         try {
-            AM.setMaximum(true);
+            AMK.setMaximum(true);
         } catch (Exception e) {
+            System.out.println("error : "+ e.getMessage());
         }
-        MainDesktop.add(AM).setVisible(true);
-    }//GEN-LAST:event_btnAbsenMasukActionPerformed
+        MainDesktop.add(AMK).setVisible(true);
+    }//GEN-LAST:event_btnAbsensiMasukActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnDataKaryawanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDataKaryawanActionPerformed
         MainDesktop.removeAll();
         DataKaryawan DK = new DataKaryawan();
         DK.setVisible(true);
         try {
             DK.setMaximum(true);
         } catch (Exception e) {
+            System.out.println("error : "+ e.getMessage());
         }
         MainDesktop.add(DK).setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnDataKaryawanActionPerformed
 
-    private void btnAbsenKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbsenKeluarActionPerformed
+    private void btnAbsensiKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbsensiKeluarActionPerformed
         MainDesktop.removeAll();
-        AbsensiKeluarKaryawan AK = new AbsensiKeluarKaryawan();
-        AK.setVisible(true);
+        AbsensiKeluarKaryawan AKK = new AbsensiKeluarKaryawan();
+        AKK.setVisible(true);
         try {
-            AK.setMaximum(true);
+            AKK.setMaximum(true);
         } catch (Exception e) {
+            System.out.println("error : "+ e.getMessage());
         }
-        MainDesktop.add(AK).setVisible(true);
-    }//GEN-LAST:event_btnAbsenKeluarActionPerformed
+        MainDesktop.add(AKK).setVisible(true);
+    }//GEN-LAST:event_btnAbsensiKeluarActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        // TODO add your handling code here:
         int response = showConfirmationDialog("Apakah Anda yakin ingin Logout?");
 
-        // Memproses respons dari pengguna
         if (response == JOptionPane.YES_OPTION) {
             LoginScreen LS = new LoginScreen();
             LS.setVisible(true);
@@ -251,10 +263,12 @@ public class MainScreen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane MainDesktop;
-    private javax.swing.JButton btnAbsenKeluar;
-    private javax.swing.JButton btnAbsenMasuk;
+    private javax.swing.JButton btnAbsensiKeluar;
+    private javax.swing.JButton btnAbsensiMasuk;
+    private javax.swing.JButton btnDataKaryawan;
     private javax.swing.JButton btnLogout;
-    private javax.swing.JButton jButton2;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
